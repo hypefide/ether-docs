@@ -1,16 +1,12 @@
-<template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/docs">Docs</g-link>
-      </nav>
-    </header>
-    <slot/>
-  </div>
+<template lang="pug">
+  .layout
+    header.header
+      b
+        g-link(to="/") {{ $static.metaData.siteName }}
+      nav.nav
+        g-link(class="nav__link" to="/docs") Docs
+        a(class="nav__link" href="https://github.com/hypefide/ether" target="_blank") GitHub
+    slot
 </template>
 
 <static-query>
@@ -22,13 +18,6 @@ query {
 </static-query>
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
 .layout {
   max-width: 760px;
   margin: 0 auto;
